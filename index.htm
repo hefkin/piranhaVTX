@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">VTX config generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/controls.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <div tabindex="1" id="language-selector">
+        <a href="#" onclick="setLanguage('en')" id="lang-en">Eng</a>
+        <a href="#" onclick="setLanguage('ru')" id="lang-ru">Рус</a>
+    </div>
+
+    <div class="container">
+        <img id="logo" src="images/piranha.svg" width="72px" height="72px" class="center">
+        <h1 data-i18n="title">VTX config generator</h1>
+        <blockquote id="notice" class="hidden">
+            <p data-i18n="descr"></p>
+        </blockquote>
+        <div class="tool-container">
+            <a href="cfg/index.htm" class="tool" tabindex="2">
+                <div>
+                    <h3 data-i18n="cfg_title"></h3>
+                </div>
+                <span class="tool-link">»</span>
+            </a>
+
+            <div class="tool-group">
+                <div class="tool tool-group-header" tabindex="2">
+                    <div>
+                        <h3 data-i18n="group_calculators">Calculators</h3>
+                    </div>
+                    <span class="tool-link group-toggle">›</span>
+                </div>
+                <div class="tool-group-content">
+                    <a href="ch/index.htm" class="tool" tabindex="3">
+                        <div>
+                            <h3 data-i18n="ch_title"></h3>
+                        </div>
+                        <span class="tool-link">»</span>
+                    </a>
+                    <a href="hrm/index.htm" class="tool" tabindex="3">
+                        <div>
+                            <h3 data-i18n="hrm_title"></h3>
+                        </div>
+                        <span class="tool-link">»</span>
+                    </a>
+                    <a href="dpl/index.htm" class="tool" tabindex="3">
+                        <div>
+                            <h3 data-i18n="dpl_title"></h3>
+                        </div>
+                        <span class="tool-link">»</span>
+                    </a>
+                    <a href="ant/index.htm" class="tool" tabindex="3">
+                        <div>
+                            <h3 data-i18n="ant_title"></h3>
+                        </div>
+                        <span class="tool-link">»</span>
+                    </a>
+                    <a href="frn/index.htm" class="tool" tabindex="3">
+                        <div>
+                            <h3 data-i18n="frn_title"></h3>
+                        </div>
+                        <span class="tool-link">»</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <a href="inf/index.htm" class="tool sub-tool" tabindex="3">
+                <div>
+                    <h3 data-i18n="inf_title"></h3>
+                </div>
+                <span class="tool-link">»</span>
+            </a>
+
+            <a href="logo/index.htm" class="tool" tabindex="2">
+                <div>
+                    <h3 data-i18n="logo_title"></h3>
+                </div>
+                <span class="tool-link">»</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="center">
+
+        <script src="js/translations.js"></script>
+        <script src="js/theme.js"></script>
+        <script src="js/expand.js"></script>
+
+</html>
