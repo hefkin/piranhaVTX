@@ -73,6 +73,16 @@
     <script src="script.js"></script>
     <script src="../js/translations.js"></script>
     <script src="../js/toast.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+        <script>
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.BackButton.show();
+        tg.BackButton.onClick(() => {
+            tg.close(); // Закрыть Web App
+        });
+        tg.expand();
+    </script>
 
 </body>
 
