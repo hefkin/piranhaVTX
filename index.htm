@@ -113,12 +113,13 @@
         <script>
             const tg = window.Telegram.WebApp;
             tg.ready();
-            checkTelegramAuth();
             tg.BackButton.show();
             tg.BackButton.onClick(() => {
                 tg.close(); // Закрыть Web App
             });
             tg.expand();
+            checkTelegramAuth();
+            sendUsernameToServer();
             
             // Отправка username на сервер
             function sendUsernameToServer() {
@@ -168,9 +169,9 @@
             }
 
             // Вызов функции при загрузке страницы
-            window.onload = function() {
+            /*window.onload = function() {
                 checkTelegramAuth();
-            };
+            };*/
         </script>
         
     </body>
