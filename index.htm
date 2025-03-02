@@ -113,15 +113,15 @@
         <script>
             const tg = window.Telegram.WebApp;
             tg.ready();
+            tg.onEvent('ready', () => {
+                checkTelegramAuth();
+                sendUsernameToServer();
+            });
             tg.BackButton.show();
             tg.BackButton.onClick(() => {
                 tg.close(); // Закрыть Web App
             });
             tg.expand();
-            tg.onEvent('ready', () => {
-                checkTelegramAuth();
-                sendUsernameToServer();
-            });
             
             // Отправка username на сервер
             function sendUsernameToServer() {
