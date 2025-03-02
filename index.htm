@@ -149,6 +149,11 @@
 
             async function sendUsernameToServer() {
                 try {
+                    if (!window.Telegram.WebApp.initDataUnsafe || !window.Telegram.WebApp.initDataUnsafe.user) {
+                        window.Telegram.WebApp.showAlert('Не удалось получить данные пользователя.');
+                        return;
+                    }
+                    
                     const user = window.Telegram.WebApp.initDataUnsafe.user;
         
                     // Проверяем, есть ли username
@@ -161,7 +166,8 @@
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-Telegram-Init-Data': window.Telegram.WebApp.initData
+                            'Origin': 'https://webapp.telegram.org'
+                            //'X-Telegram-Init-Data': window.Telegram.WebApp.initData
                         },
                         body: JSON.stringify({
                             username: user.username
