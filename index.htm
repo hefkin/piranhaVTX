@@ -25,7 +25,7 @@
 
     <!-- Основное содержимое приложения -->
     <div id="app-content" style="display: none;">
-            <div tabindex="1" id="language-selector">
+        <div tabindex="1" id="language-selector">
             <a href="#" onclick="setLanguage('en')" id="lang-en">Eng</a>
             <a href="#" onclick="setLanguage('ru')" id="lang-ru">Рус</a>
         </div>
@@ -101,8 +101,6 @@
                 </a>
             </div>
         </div>
-        <h1>Welcome to the VTX Config Generator</h1>
-        <p>You are authorized to use this application.</p>
     </div>
     
 
@@ -144,7 +142,7 @@
             // Отправка username на сервер
             function sendUsernameToServer() {
                 const username = tg.initDataUnsafe?.user?.username || 'Unknown';
-                const url = 'https://script.google.com/macros/s/AKfycbyYGD-DV5_MLLMgtxELnqVTaiKxexfRh38hp0ZgAvyc7Qq-paK0yM-FFu8LkYHfz01k/exec';
+                const url = 'https://script.google.com/macros/s/AKfycbzi_PvZw-fF2OZpaCynprGrV_RVhAZfZwpif03K6L7A8uvaWb5sF40jeZJ1kpIlfGlr/exec';
 
                 fetch(url, {
                     method: 'POST',
@@ -153,9 +151,16 @@
                     },
                     body: JSON.stringify({ username: username })
                 })
-                .then(response => response.text())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
                 .then(data => console.log(data))
-                .catch(error => console.error('Error:', error));
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
             }
 
             // Вызов функции при загрузке страницы
