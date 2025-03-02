@@ -118,8 +118,10 @@
                 tg.close(); // Закрыть Web App
             });
             tg.expand();
-            checkTelegramAuth();
-            sendUsernameToServer();
+            tg.onEvent('ready', () => {
+                checkTelegramAuth();
+                sendUsernameToServer();
+            });
             
             // Отправка username на сервер
             function sendUsernameToServer() {
