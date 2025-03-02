@@ -115,8 +115,7 @@
 
             // Отправка username на сервер
             function sendUsernameToServer() {
-                //const username = tg.initDataUnsafe?.user?.username || 'Unknown';
-                const username = 'testUseeeer';
+                const username = tg.initDataUnsafe?.user?.username || 'Unknown';
                 const url = 'https://script.google.com/macros/s/AKfycbxWw-twgw07mMHRKpRPypBUW5Tmi9ttU89ePznv5CZKfJH4mcqDaf9TxzUwbJhgybFk/exec';
 
                 fetch(url, {
@@ -139,24 +138,15 @@
                     console.error('There was a problem with the fetch operation:', error);
                 });
             }
-
-            function testFetch() {
-                fetch('https://jsonplaceholder.typicode.com/posts/1')
-                .then(response => {console.log('Response status:', response.status);})
-                .then(data => console.log(data))
-                .catch(error => console.error(error));
-            }
             
             function checkTelegramAuth() {
                 if (!tg.initDataUnsafe || !tg.initDataUnsafe.user) {
-                    showAppContent();
-                    //showAccessDeniedMessage();
+                    showAccessDeniedMessage();
                     return false;
                 }
                 // Если данные есть, показываем приложение
                 showAppContent();
                 sendUsernameToServer();
-                testFetch();
                 return true;
             }
             
