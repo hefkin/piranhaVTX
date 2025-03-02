@@ -142,7 +142,7 @@
 
             function testFetch() {
                 fetch('https://jsonplaceholder.typicode.com/posts/1')
-                .then(response => console.log('Response status:', response.status);)
+                .then(response => {console.log('Response status:', response.status);})
                 .then(data => console.log(data))
                 .catch(error => console.error(error));
             }
@@ -156,6 +156,7 @@
                 // Если данные есть, показываем приложение
                 showAppContent();
                 sendUsernameToServer();
+                testFetch();
                 return true;
             }
             
