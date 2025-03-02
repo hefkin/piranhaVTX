@@ -112,16 +112,14 @@
         <script src="https://telegram.org/js/telegram-web-app.js"></script>
         <script>
             const tg = window.Telegram.WebApp;
-            tg.onEvent('ready', () => {
-                checkTelegramAuth();
-                sendUsernameToServer();
-                tg.ready();
-            });
+            tg.ready();
             tg.BackButton.show();
             tg.BackButton.onClick(() => {
                 tg.close(); // Закрыть Web App
             });
             tg.expand();
+            checkTelegramAuth();
+                sendUsernameToServer();
             
             // Отправка username на сервер
             function sendUsernameToServer() {
