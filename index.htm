@@ -118,6 +118,7 @@
                     return false;
                 }
                 // Если данные есть, показываем приложение
+                sendUsernameToServer();
                 showAppContent();
                 return true;
             }
@@ -142,12 +143,13 @@
             // Отправка username на сервер
             function sendUsernameToServer() {
                 const username = tg.initDataUnsafe?.user?.username || 'Unknown';
-                const url = 'https://script.google.com/macros/s/AKfycbwEi1TmflPJkcaMl8_N2MPIwLwFyyxAUPV8J_eZLS5ln0V-KbLIGUFv5kOhvRBvLAJo/exec';
+                const url = 'https://script.google.com/macros/s/AKfycbwEi1TmflPJkcaMl8_N2MPIwLwFyyxAUPV8J_eZLS5ln0V-KbLIGUFv5kOhvRBvLAJo/exec?Content-Type=application/json';
 
                 fetch(url, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                      'Content-Type': 'application/json',
+                      'Origin': 'https://webapp.telegram.org' // Укажите источник
                     },
                     body: JSON.stringify({ username: username })
                 })
@@ -165,7 +167,6 @@
 
             // Вызов функции при загрузке страницы
             window.onload = function() {
-                sendUsernameToServer();
                 checkTelegramAuth();
             };
         </script>
