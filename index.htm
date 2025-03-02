@@ -112,28 +112,7 @@
         <script src="https://telegram.org/js/telegram-web-app.js"></script>
         <script>
             const tg = window.Telegram.WebApp;
-            function checkTelegramAuth() {
-                if (!tg.initDataUnsafe || !tg.initDataUnsafe.user) {
-                    showAppContent();
-                    //showAccessDeniedMessage();
-                    return false;
-                }
-                // Если данные есть, показываем приложение
-                showAppContent();
-                sendUsernameToServer();
-                return true;
-            }
-            
-            function showAppContent() {
-                document.getElementById('app-content').style.display = 'block';
-                document.getElementById('access-denied-message').style.display = 'none';
-            }
-            // Показать сообщение об отказе
-            function showAccessDeniedMessage() {
-                document.getElementById('app-content').style.display = 'none';
-                document.getElementById('access-denied-message').style.display = 'block';
-            }
-            
+
             // Отправка username на сервер
             function sendUsernameToServer() {
                 //const username = tg.initDataUnsafe?.user?.username || 'Unknown';
@@ -159,6 +138,30 @@
                     console.error('There was a problem with the fetch operation:', error);
                 });
             }
+            
+            function checkTelegramAuth() {
+                if (!tg.initDataUnsafe || !tg.initDataUnsafe.user) {
+                    showAppContent();
+                    //showAccessDeniedMessage();
+                    return false;
+                }
+                // Если данные есть, показываем приложение
+                showAppContent();
+                sendUsernameToServer();
+                return true;
+            }
+            
+            function showAppContent() {
+                document.getElementById('app-content').style.display = 'block';
+                document.getElementById('access-denied-message').style.display = 'none';
+            }
+            // Показать сообщение об отказе
+            function showAccessDeniedMessage() {
+                document.getElementById('app-content').style.display = 'none';
+                document.getElementById('access-denied-message').style.display = 'block';
+            }
+            
+            
 
             tg.ready();
             tg.BackButton.show();
