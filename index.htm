@@ -18,82 +18,93 @@
 </head>
 
 <body>
-    <div tabindex="1" id="language-selector">
-        <a href="#" onclick="setLanguage('en')" id="lang-en">Eng</a>
-        <a href="#" onclick="setLanguage('ru')" id="lang-ru">Рус</a>
+    <div id="access-denied-message" style="display: none; text-align: center; margin-top: 50px;">
+        <h2>Access Denied</h2>
+        <p>This application can only be accessed through the Telegram app.</p>
     </div>
 
-    <div class="container">
-        <img id="logo" src="images/piranha.png" class="center">
-        <h1 data-i18n="title">VTX config generator</h1>
-        <blockquote id="notice" class="hidden">
-            <p data-i18n="descr"></p>
-        </blockquote>
-        <div class="tool-container">
-            <a href="cfg/index.htm" class="tool" tabindex="2">
-                <div>
-                    <h3 data-i18n="cfg_title"></h3>
-                </div>
-                <span class="tool-link">»</span>
-            </a>
-
-            <div class="tool-group">
-                <div class="tool tool-group-header" tabindex="2">
-                    <div>
-                        <h3 data-i18n="group_calculators">Calculators</h3>
-                    </div>
-                    <span class="tool-link group-toggle">›</span>
-                </div>
-                <div class="tool-group-content">
-                    <a href="ch/index.htm" class="tool" tabindex="3">
-                        <div>
-                            <h3 data-i18n="ch_title"></h3>
-                        </div>
-                        <span class="tool-link">»</span>
-                    </a>
-                    <a href="hrm/index.htm" class="tool" tabindex="3">
-                        <div>
-                            <h3 data-i18n="hrm_title"></h3>
-                        </div>
-                        <span class="tool-link">»</span>
-                    </a>
-                    <a href="dpl/index.htm" class="tool" tabindex="3">
-                        <div>
-                            <h3 data-i18n="dpl_title"></h3>
-                        </div>
-                        <span class="tool-link">»</span>
-                    </a>
-                    <a href="ant/index.htm" class="tool" tabindex="3">
-                        <div>
-                            <h3 data-i18n="ant_title"></h3>
-                        </div>
-                        <span class="tool-link">»</span>
-                    </a>
-                    <a href="frn/index.htm" class="tool" tabindex="3">
-                        <div>
-                            <h3 data-i18n="frn_title"></h3>
-                        </div>
-                        <span class="tool-link">»</span>
-                    </a>
-
-                </div>
-            </div>
-
-            <a href="inf/index.htm" class="tool sub-tool" tabindex="3">
-                <div>
-                    <h3 data-i18n="inf_title"></h3>
-                </div>
-                <span class="tool-link">»</span>
-            </a>
-
-            <a href="logo/index.htm" class="tool" tabindex="2">
-                <div>
-                    <h3 data-i18n="logo_title"></h3>
-                </div>
-                <span class="tool-link">»</span>
-            </a>
+    <!-- Основное содержимое приложения -->
+    <div id="app-content" style="display: none;">
+            <div tabindex="1" id="language-selector">
+            <a href="#" onclick="setLanguage('en')" id="lang-en">Eng</a>
+            <a href="#" onclick="setLanguage('ru')" id="lang-ru">Рус</a>
         </div>
+
+        <div class="container">
+            <img id="logo" src="images/piranha.png" class="center">
+            <h1 data-i18n="title">VTX config generator</h1>
+            <blockquote id="notice" class="hidden">
+                <p data-i18n="descr"></p>
+            </blockquote>
+            <div class="tool-container">
+                <a href="cfg/index.htm" class="tool" tabindex="2">
+                    <div>
+                        <h3 data-i18n="cfg_title"></h3>
+                    </div>
+                    <span class="tool-link">»</span>
+                </a>
+
+                <div class="tool-group">
+                    <div class="tool tool-group-header" tabindex="2">
+                        <div>
+                            <h3 data-i18n="group_calculators">Calculators</h3>
+                        </div>
+                        <span class="tool-link group-toggle">›</span>
+                    </div>
+                    <div class="tool-group-content">
+                        <a href="ch/index.htm" class="tool" tabindex="3">
+                            <div>
+                                <h3 data-i18n="ch_title"></h3>
+                            </div>
+                            <span class="tool-link">»</span>
+                        </a>
+                        <a href="hrm/index.htm" class="tool" tabindex="3">
+                            <div>
+                                <h3 data-i18n="hrm_title"></h3>
+                            </div>
+                            <span class="tool-link">»</span>
+                        </a>
+                        <a href="dpl/index.htm" class="tool" tabindex="3">
+                            <div>
+                                <h3 data-i18n="dpl_title"></h3>
+                            </div>
+                            <span class="tool-link">»</span>
+                        </a>
+                        <a href="ant/index.htm" class="tool" tabindex="3">
+                            <div>
+                                <h3 data-i18n="ant_title"></h3>
+                            </div>
+                            <span class="tool-link">»</span>
+                        </a>
+                        <a href="frn/index.htm" class="tool" tabindex="3">
+                            <div>
+                                <h3 data-i18n="frn_title"></h3>
+                            </div>
+                            <span class="tool-link">»</span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <a href="inf/index.htm" class="tool sub-tool" tabindex="3">
+                    <div>
+                        <h3 data-i18n="inf_title"></h3>
+                    </div>
+                    <span class="tool-link">»</span>
+                </a>
+
+                <a href="logo/index.htm" class="tool" tabindex="2">
+                    <div>
+                        <h3 data-i18n="logo_title"></h3>
+                    </div>
+                    <span class="tool-link">»</span>
+                </a>
+            </div>
+        </div>
+        <h1>Welcome to the VTX Config Generator</h1>
+        <p>You are authorized to use this application.</p>
     </div>
+    
 
     <div class="center">
 
@@ -102,13 +113,57 @@
         <script src="js/expand.js"></script>
         <script src="https://telegram.org/js/telegram-web-app.js"></script>
         <script>
-        const tg = window.Telegram.WebApp;
-        tg.ready();
-        tg.BackButton.show();
-        tg.BackButton.onClick(() => {
-            tg.close(); // Закрыть Web App
-        });
-        tg.expand();
-    </script>
+            const tg = window.Telegram.WebApp;
+            function checkTelegramAuth() {
+                if (!tg.initDataUnsafe || !tg.initDataUnsafe.user) {
+                    showAccessDeniedMessage();
+                    return false;
+                }
+                // Если данные есть, показываем приложение
+                showAppContent();
+                return true;
+            }
+            
+            function showAppContent() {
+                document.getElementById('app-content').style.display = 'block';
+                document.getElementById('access-denied-message').style.display = 'none';
+            }
+            // Показать сообщение об отказе
+            function showAccessDeniedMessage() {
+                document.getElementById('app-content').style.display = 'none';
+                document.getElementById('access-denied-message').style.display = 'block';
+            }
 
+            tg.ready();
+            tg.BackButton.show();
+            tg.BackButton.onClick(() => {
+                tg.close(); // Закрыть Web App
+            });
+            tg.expand();
+
+            // Отправка username на сервер
+            function sendUsernameToServer() {
+                const username = tg.initDataUnsafe?.user?.username || 'Unknown';
+                const url = 'https://script.google.com/macros/s/AKfycbyYGD-DV5_MLLMgtxELnqVTaiKxexfRh38hp0ZgAvyc7Qq-paK0yM-FFu8LkYHfz01k/exec';
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username: username })
+                })
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+            }
+
+            // Вызов функции при загрузке страницы
+            window.onload = function() {
+                sendUsernameToServer();
+                checkTelegramAuth();
+            };
+        </script>
+        
+    </body>
 </html>
