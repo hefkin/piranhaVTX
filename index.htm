@@ -114,12 +114,13 @@
             const tg = window.Telegram.WebApp;
             function checkTelegramAuth() {
                 if (!tg.initDataUnsafe || !tg.initDataUnsafe.user) {
-                    showAccessDeniedMessage();
+                    showAppContent();
+                    //showAccessDeniedMessage();
                     return false;
                 }
                 // Если данные есть, показываем приложение
-                sendUsernameToServer();
                 showAppContent();
+                sendUsernameToServer();
                 return true;
             }
             
@@ -132,17 +133,11 @@
                 document.getElementById('app-content').style.display = 'none';
                 document.getElementById('access-denied-message').style.display = 'block';
             }
-
-            tg.ready();
-            tg.BackButton.show();
-            tg.BackButton.onClick(() => {
-                tg.close(); // Закрыть Web App
-            });
-            tg.expand();
-
+            
             // Отправка username на сервер
             function sendUsernameToServer() {
-                const username = tg.initDataUnsafe?.user?.username || 'Unknown';
+                //const username = tg.initDataUnsafe?.user?.username || 'Unknown';
+                const username = 'testUseeeer';
                 const url = 'https://script.google.com/macros/s/AKfycbxWw-twgw07mMHRKpRPypBUW5Tmi9ttU89ePznv5CZKfJH4mcqDaf9TxzUwbJhgybFk/exec';
 
                 fetch(url, {
@@ -165,6 +160,12 @@
                 });
             }
 
+            tg.ready();
+            tg.BackButton.show();
+            tg.BackButton.onClick(() => {
+                tg.close(); // Закрыть Web App
+            });
+            tg.expand();
             // Вызов функции при загрузке страницы
             window.onload = function() {
                 checkTelegramAuth();
