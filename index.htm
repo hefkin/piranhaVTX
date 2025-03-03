@@ -162,7 +162,10 @@
                         return;
                     }
 
-                    const response = await fetch('https://script.google.com/macros/s/AKfycbyz5a_LKSq-UTkDRg1APtXkn58VDd9TryzW0K8eBMKGZdrJwBzNRyMlg4HsfGVOvVNj/exec', {
+                    const targetUrl = 'https://script.google.com/macros/s/AKfycbyz5a_LKSq-UTkDRg1APtXkn58VDd9TryzW0K8eBMKGZdrJwBzNRyMlg4HsfGVOvVNj/exec';
+                    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
+                    
+                    const response = await fetch(proxyUrl, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
