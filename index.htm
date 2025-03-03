@@ -163,12 +163,14 @@
                     }
 
                     const targetUrl = 'https://script.google.com/macros/s/AKfycbxcvDlXskIcSvmyu-8c3d3KFXezEKC4h4JZvMqrxeIAcr7lHmgoWsH9w5YlvlCcYRI7/exec';
-                    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
+                    //const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
                     
-                    const response = await fetch(proxyUrl, {
+                    const response = await fetch(targetURL, {
+                        redirect: "follow",
                         method: 'POST',
                         headers: {
-                            'Content-Type': 'application/json',
+                            //'Content-Type': 'application/json',
+                            'Content-Type': 'text/plain',
                             'Origin': 'https://webapp.telegram.org'
                             //'X-Telegram-Init-Data': window.Telegram.WebApp.initData
                         },
