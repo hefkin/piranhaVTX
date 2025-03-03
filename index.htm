@@ -119,7 +119,7 @@
                 tg.close(); // Закрыть Web App
             });
             tg.expand();
-            sendUsernameToServer();
+            //sendUsernameToServer();
             
             // Отправка username на сервер
             /*function sendUsernameToServer() {
@@ -162,10 +162,25 @@
                         return;
                     }
 
-                    const targetUrl = 'https://script.google.com/macros/s/AKfycbxcvDlXskIcSvmyu-8c3d3KFXezEKC4h4JZvMqrxeIAcr7lHmgoWsH9w5YlvlCcYRI7/exec';
-                    //const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
+                    //const targetUrl = 'https://script.google.com/macros/s/AKfycbxcvDlXskIcSvmyu-8c3d3KFXezEKC4h4JZvMqrxeIAcr7lHmgoWsH9w5YlvlCcYRI7/exec';
+                    const targetUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSeyY6wJG6JjjUqtjtN895TaUQ2mvoOMBrrN1flzvMeMGfIw8A/formResponse';
+
+                    const formData = new FormData();
+                    formData.append("entry.978242404", user.username);
+
+                    fetch(formUrl, {
+                        method: "POST",
+                        body: formData,
+                        mode: "no-cors"
+                    })
+                    .then(() => {
+                        console.log("Данные отправлены!");
+                    })
+                    .catch((error) => {
+                        console.error("Ошибка:", error);
+                    });
                     
-                    const response = await fetch(targetURL, {
+                    /*const response = await fetch(targetURL, {
                         redirect: "follow",
                         method: 'POST',
                         headers: {
@@ -176,12 +191,13 @@
                         },
                         body: JSON.stringify({
                             username: user.username
+                            
                         })
                     });
 
                     const data = await response.json();
                     console.log('Успешно:', data);
-                    return data;
+                    return data;*/
                 } catch (error) {
                     console.error('Ошибка:', error);
                 }
