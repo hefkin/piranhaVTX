@@ -119,34 +119,6 @@
                 tg.close(); // Закрыть Web App
             });
             tg.expand();
-            //sendUsernameToServer();
-            
-            // Отправка username на сервер
-            /*function sendUsernameToServer() {
-                const username = tg.initDataUnsafe?.user?.username || 'Unknown';
-                const url = 'https://script.google.com/macros/s/AKfycbxWw-twgw07mMHRKpRPypBUW5Tmi9ttU89ePznv5CZKfJH4mcqDaf9TxzUwbJhgybFk/exec';
-
-                fetch(url, {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                      'Origin': 'https://webapp.telegram.org' // Укажите источник
-                    },
-                    body: JSON.stringify({ username: username })
-                })
-                .then(response => {
-                    console.log('Response status:', response.status);
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(data => console.log(data))
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                });
-            }*/
-
             async function sendUsernameToServer() {
                 try {
                     if (!window.Telegram.WebApp.initDataUnsafe || !window.Telegram.WebApp.initDataUnsafe.user) {
@@ -161,8 +133,6 @@
                         window.Telegram.WebApp.showAlert('У вас нет username в Telegram');
                         return;
                     }
-
-                    //const targetUrl = 'https://script.google.com/macros/s/AKfycbxcvDlXskIcSvmyu-8c3d3KFXezEKC4h4JZvMqrxeIAcr7lHmgoWsH9w5YlvlCcYRI7/exec';
                     const formUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSeyY6wJG6JjjUqtjtN895TaUQ2mvoOMBrrN1flzvMeMGfIw8A/formResponse';
 
                     const formData = new FormData();
@@ -179,25 +149,6 @@
                     .catch((error) => {
                         console.error("Ошибка:", error);
                     });
-                    
-                    /*const response = await fetch(targetURL, {
-                        redirect: "follow",
-                        method: 'POST',
-                        headers: {
-                            //'Content-Type': 'application/json',
-                            'Content-Type': 'text/plain',
-                            'Origin': 'https://webapp.telegram.org'
-                            //'X-Telegram-Init-Data': window.Telegram.WebApp.initData
-                        },
-                        body: JSON.stringify({
-                            username: user.username
-                            
-                        })
-                    });
-
-                    const data = await response.json();
-                    console.log('Успешно:', data);
-                    return data;*/
                 } catch (error) {
                     console.error('Ошибка:', error);
                 }
@@ -223,11 +174,6 @@
                 document.getElementById('app-content').style.display = 'none';
                 document.getElementById('access-denied-message').style.display = 'block';
             }
-
-            // Вызов функции при загрузке страницы
-            /*window.onload = function() {
-                checkTelegramAuth();
-            };*/
         </script>
         
     </body>
